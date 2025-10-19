@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <UserSecretsId>dotnet-VpnProviderWorker-d6727ebc-ac63-4326-9b44-91e5c76ba66e</UserSecretsId>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Confluent.Kafka" Version="2.11.1" />
+        <PackageReference Include="Dapper" Version="2.1.66" />
+        <PackageReference Include="FluentResults" Version="4.0.0" />
+        <PackageReference Include="JsonNet.ContractResolvers" Version="2.0.0" />
+        <PackageReference Include="MassTransit.Kafka" Version="8.5.2" />
+        <PackageReference Include="MediatR" Version="13.0.0" />
+        <PackageReference Include="Microsoft.Data.Sqlite.Core" Version="9.0.8" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.8" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.8">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.8" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Core" Version="9.0.8" />
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.7" />
+        <PackageReference Include="Microsoft.Extensions.Http" Version="9.0.8" />
+        <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+        <PackageReference Include="Quartz" Version="3.15.0" />
+        <PackageReference Include="Quartz.Extensions.Hosting" Version="3.15.0" />
+        <PackageReference Include="SQLite" Version="3.13.0" />
+        <PackageReference Include="SubscriptionKafkaContracts" Version="1.1.4" />
+    </ItemGroup>
+</Project>
