@@ -1,0 +1,88 @@
+# Visual Studio 2015/2017/2019/2022
+.vs/
+*.suo
+*.user
+*.userosf
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+[Bb]in/
+[Oo]bj/
+[Oo]ut/
+.build/
+.publish/
+*.log
+*.pdb
+*.ilk
+*.meta
+*.obj
+*.pch
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.tmp_proj
+*.vspscc
+*.vssscc
+*.builds
+*.pidb
+*.svclog
+*.scc
+
+# Visual Studio Code
+.vscode/
+
+# NuGet packages
+*.nupkg
+*.snupkg
+**/packages/*
+!**/packages/repositories.config
+global.json
+
+# Rider
+.idea/
+
+# Azure Functions
+.azurefunctions/
+
+# Node.js
+node_modules/
+
+# Xamarin
+*.apk
+*.aab
+*.ipa
+
+# Miscellaneous
+[Tt]humbs.db
+[Dd]esktop.ini
+*.bak
+*.ncb
+*.opensdf
+*.sdf
+*.cachefile
+*.aps
+*.vsp
+*.vspx
+*.gpState
+_ReSharper*/
+*.resharper
+*.dotSettings
+*.pid
+*.booproj
+*.nuget.props
+*.nuget.targets
+*.kproj.user
+*.lock.json
+project.lock.json
+Generated_Code/
+
+# Custom
+VpnProviderWorker.sln.DotSettings.user
+vpnprovider.db
