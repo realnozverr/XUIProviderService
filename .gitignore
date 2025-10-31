@@ -84,5 +84,7 @@ project.lock.json
 Generated_Code/
 
 # Custom
+appsettings.json
+appsettings.Development.json
 VpnProviderWorker.sln.DotSettings.user
 vpnprovider.db

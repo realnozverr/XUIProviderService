@@ -1,6 +1,5 @@
 using MassTransit;
 using SubscriptionKafkaContracts.From.SubscriptionKafkaEvents;
-using VpnProviderWorker.Command.AddClientToInboundCommand;
 using VpnProviderWorker.Persistence.Inbox;
 using VpnProviderWorker.Persistence.Inbox.InputConsumerEvents;
 
