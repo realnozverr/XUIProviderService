@@ -17,20 +17,26 @@ public class XUiService : IXUiService
         _options = options.Value;
     }
 
-    public async Task<Result<string>> GenerateConfig(Guid userId, string email)
+    public async Task<Result<string>> GenerateConfig(
+        Guid userId,
+        string email,
+        long expiryTime,
+        Guid subId,
+        int totalGb,
+        int limitIp
+        )
     {
         _logger.LogInformation("Generating config for user {UserId}", userId);
-        var subscription = Guid.NewGuid().ToString("N");
         var request = new AddClientRequest
         {
             Id = userId.ToString(),
             Email = email,
             Enable = true,
-            TotalGb = 0, 
-            ExpiryTime = 0, 
-            LimitIp = 0,
+            TotalGb = totalGb, 
+            ExpiryTime = expiryTime,
+            LimitIp = limitIp,
             Flow = "xtls-rprx-vision",
-            SubId = subscription
+            SubId = subId.ToString()
         };
 
         var result = await _client.AddClient(_options.InboundId, request);
@@ -40,9 +46,9 @@ public class XUiService : IXUiService
             return Result.Fail("Failed to add client in X-UI").WithErrors(result.Errors);
         }
 
-        var subscriptionLink = $"{_options.SubscriptionBaseUrl}{subscription}";
+        var subscriptionLink = $"{_options.SubscriptionBaseUrl}{request.SubId}";
 
-        _logger.LogInformation("Generated config for user {UserId}: {subId}", userId, subscription);
+        _logger.LogInformation("Generated config for user {UserId}: {subId}", userId, request.SubId);
         return Result.Ok(subscriptionLink);
     }
 }

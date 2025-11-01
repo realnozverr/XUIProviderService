@@ -15,7 +15,6 @@ using VpnProviderWorker.Persistence.Outbox;
 using VpnProviderWorker.Persistence.TypeHandlers;
 using Polly;
 using Polly.Extensions.Http;
-using Polly.Retry;
 using SubscriptionKafkaContracts.From.SubscriptionKafkaEvents;
 using SubscriptionKafkaContracts.From.VpnServiceEvents;
 

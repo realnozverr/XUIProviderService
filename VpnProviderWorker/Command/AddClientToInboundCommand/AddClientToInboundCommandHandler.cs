@@ -16,8 +16,16 @@ public class AddClientToInboundCommandHandler(
     {
         logger.LogInformation("Attempting to add client to XUI for user {UserId} with name {ClientName}",
             request.UserId, request.TelegramName);
-
-        var result = await xuiService.GenerateConfig(request.UserId, request.TelegramName);
+        
+        DateTimeOffset endDateOffset = new DateTimeOffset(request.EndDate.ToUniversalTime());
+        long expiryTime = endDateOffset.ToUnixTimeMilliseconds();
+        var result = await xuiService.GenerateConfig(
+            request.UserId,
+            request.TelegramName,
+            expiryTime,
+            request.SubscriptionId,
+            0,
+            5);
 
         if (result.IsFailed)
         {
@@ -29,7 +37,7 @@ public class AddClientToInboundCommandHandler(
         await messageBus.Publish(new VpnConfigGenerated(
             eventId: Guid.NewGuid(),
             userId: request.UserId,
-            telegramId: 0, //TODO добавить Id в SubscriptionCreate
+            telegramId: request.TelegramId, 
             telegramName: request.TelegramName,
             vpnConfig: result.Value.ToString()
         ), cancellationToken);

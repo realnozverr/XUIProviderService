@@ -71,11 +71,9 @@ public sealed class OutboxBackgroundJob : IJob
         const int batchSize = 50;
         
         return await dbContext.Outbox
-            .FromSqlRaw($@"
-                SELECT * FROM ""outbox""
-                WHERE ""processed_on_utc"" IS NULL
-                ORDER BY ""occurred_on_utc""
-                LIMIT {batchSize}")
+            .Where(o => o.ProcessedOnUtc == null)
+            .OrderBy(o => o.OccurredOnUtc)
+            .Take(batchSize)
             .AsNoTracking()
             .ToListAsync(ct);
     }
